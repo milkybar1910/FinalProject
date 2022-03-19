@@ -1,0 +1,7 @@
+.blog-mini-description {
+  display: -webkit-box;
+  /* max-width: 200px; */
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

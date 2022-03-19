@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+}
+
+.poppins-font {
+  font-family: "Poppins", sans-serif;
+}
+
+.open-sans {
+  font-family: "Open Sans", sans-serif;
+}
+
+.detailCards {
+  cursor: pointer;
+}
+.detailCards:hover {
+  text-decoration: underline;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.menubar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 992px) {
+  .menubar {
+    position: sticky;
+    top: 0 !important;
+    height: 10%;
+    padding-top: 0rem;
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
+}

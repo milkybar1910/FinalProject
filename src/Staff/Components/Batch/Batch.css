@@ -1,0 +1,3 @@
+.adminDropdown .dropdown-toggle:after {
+  content: none;
+}
