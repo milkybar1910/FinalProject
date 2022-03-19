@@ -2,8 +2,11 @@ import React from "react";
 import { Card, Col, Container, Image, Row } from "react-bootstrap";
 import Avatar from "react-avatar";
 import "./Blogs.css";
+import moment from "moment";
+import draftToHtml from "draftjs-to-html";
 
 const Blogs = ({ blog }) => {
+  console.log();
   return (
     <Container fluid className="p-0 mb-3">
       <Card className="p-2">
@@ -25,27 +28,19 @@ const Blogs = ({ blog }) => {
                     Siva Shankar SR
                   </p>
                   <p className="poppins-font m-0 fs-6">
-                    posted on{blog["timestamp"]}
+                    posted on {moment(blog["createdAt"]).format("LL")}
                   </p>
                 </div>
               </div>
               <p className="text-capitalize poppins-font fs-4 fw-bold">
-                Lambda Provisioned Concurrency Times
+                {blog["Title"]}
               </p>
               <p className="poppins-font blog-mini-description">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Aspernatur illum maxime cum culpa modi aliquid reiciendis
-                incidunt dolore odit, saepe inventore minus tempore atque fugit
-                rerum, magnam libero doloribus? Ipsam commodi qui possimus vel
-                cum porro natus accusantium sequi? Minus amet cupiditate,
-                voluptates molestiae labore corporis laudantium, repellendus
-                aspernatur odio fugit ut, obcaecati laboriosam illum? Ullam
-                velit praesentium, animi aut possimus asperiores, temporibus
-                unde repellat labore tempore voluptatem iste dolorem illum sequi
-                maiores in explicabo sapiente laborum excepturi rem saepe
-                suscipit deleniti perspiciatis. Officiis praesentium alias iure
-                modi laborum reprehenderit dolor, doloremque ratione perferendis
-                tenetur quaerat voluptas esse qui minima?
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: draftToHtml(JSON.parse(blog["Content"])),
+                  }}
+                />
               </p>
               {/* <div className="d-flex flex-direction-row mt-4">
                 <div className="align-items-center justify-content center mx-2">

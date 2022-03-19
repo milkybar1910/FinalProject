@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Base from "../../Base";
 import Blogs from "../Components/Blogs/Blogs";
 import { Card, Col, Container, Row, Modal } from "react-bootstrap";
@@ -6,10 +6,45 @@ import { isAuthenticated } from "../../Auth/helper";
 import { BsFillPencilFill } from "react-icons/bs";
 import Notification from "./Notification";
 import EditorPage from "./Editor";
+import { createBlog, getAllBlogs } from "../helper/StudentApiCall";
+
 const Home = () => {
   const [show, setShow] = useState({
     editor: false,
   });
+
+  const [blogDetails, setBlogDetails] = useState({
+    Title: "",
+    Content: "",
+    user: "",
+  });
+
+  const postBlog = (e) => {
+    e.preventDefault();
+    if (blogDetails.Title === "" || blogDetails.Content === "") {
+      alert("PROVIDE title");
+      return;
+    }
+    setBlogDetails({ ...blogDetails, user: student._id });
+    createBlog(student._id, blogDetails)
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+  };
+
+  const getContent = (content) => {
+    setBlogDetails({ ...blogDetails, Content: content });
+  };
+
+  const [renderBlogs, setRenderBlogs] = useState([]);
+
+  useEffect(() => {
+    getAllBlogs()
+      .then((data) => {
+        setRenderBlogs(data.result);
+        console.log(data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   const { student, token } = isAuthenticated();
   let data = [
@@ -78,17 +113,15 @@ const Home = () => {
                     cursor: "pointer",
                   }}
                 >
-                  {/* {show["editor"] && <Navigate to="/editor" />} */}
                   <BsFillPencilFill size={25} className="ms-4  mb-2" />
                   <p className="d-inline-block poppins-font fs-5 ms-4 mb-0 fw-bold ">
                     Write an article{" "}
                   </p>
                 </div>
-                {/* <Editor /> */}
               </Card.Body>
             </Card>
             <Modal
-              className=""
+              className="poppins-font"
               show={show["editor"]}
               onHide={() => {
                 setShow({
@@ -101,15 +134,38 @@ const Home = () => {
               keyboard={false}
             >
               <Modal.Header closeButton className="m-0">
-                <Modal.Title>Modal title</Modal.Title>
+                <Modal.Title>Create Articles</Modal.Title>
               </Modal.Header>
               <Modal.Body className="m-0">
-                <EditorPage />
+                <div class="mb-3  row container pe-0">
+                  <label
+                    for="title"
+                    class="col-sm-1 p-0 align-self-center  col-form-label"
+                  >
+                    Title
+                  </label>
+                  <div class="col-sm-11 p-0">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="title"
+                      value={blogDetails.Title}
+                      onChange={(e) => {
+                        setBlogDetails({
+                          ...blogDetails,
+                          Title: e.target.value,
+                        });
+                      }}
+                    />
+                  </div>
+                </div>
+                <EditorPage getContent={getContent} />
+                <button onClick={postBlog}>POST</button>
               </Modal.Body>
             </Modal>
             <Card className="border-0">
               <Card.Body className="px-0">
-                {data.map((blog, index) => (
+                {renderBlogs.map((blog, index) => (
                   <Blogs blog={blog} key={index} />
                 ))}
               </Card.Body>
