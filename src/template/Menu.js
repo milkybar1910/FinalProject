@@ -127,7 +127,7 @@ const Menu = ({ length = 0, className = "siva" }) => {
             src={require("../assets/favicon.png")}
           />
         </Navbar.Brand>
-        <Form className="d-flex w-100 me-lg-3 align-self-center">
+        <Form className="d-flex w-100 me-lg-3  align-self-center">
           <Form.Control
             type="search"
             placeholder="Search"
@@ -139,7 +139,6 @@ const Menu = ({ length = 0, className = "siva" }) => {
           </Button>
         </Form>
       </div>
-
       <ul className="navbar-nav ms-auto mt-lg-0 menubar bg-white py-0">
         {role === 0 ? <UserDashboard /> : <AdminDashboard />}
         <button

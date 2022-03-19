@@ -1,13 +1,24 @@
-import React from "react";
-import Base from "../../Base";
+import React, { useState } from "react";
 import { Editor } from "react-draft-wysiwyg";
-// import "../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import { EditorState, convertToRaw } from "draft-js";
+import draftToHtml from "draftjs-to-html";
 import { Container } from "react-bootstrap";
 import "./Editor.css";
-import Bold from "../../assets/bold.svg";
-import { FaBold } from "react-icons/fa";
-import "./Editor.js";
-const EditorPage = () => {
+
+const EditorPage = ({ getContent }) => {
+  const [editorState, setEditorState] = useState(() =>
+    EditorState.createEmpty()
+  );
+
+  const handleEditorChange = (state) => {
+    setEditorState(state);
+    sendContent();
+  };
+
+  const sendContent = () => {
+    getContent(JSON.stringify(convertToRaw(editorState.getCurrentContent())));
+  };
+
   const editorLabels = {
     // BlockType
     "components.controls.blocktype.h1": "Heading 1",
@@ -64,6 +75,8 @@ const EditorPage = () => {
   return (
     <Container>
       <Editor
+        editorState={editorState}
+        onEditorStateChange={handleEditorChange}
         localization={{ locale: "en", translations: editorLabels }}
         toolbarClassName=""
         editorClassName="border border-primary border-2 poppins-font"

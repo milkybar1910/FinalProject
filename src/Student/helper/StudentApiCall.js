@@ -240,3 +240,28 @@ export const DynamicUpdateStudent = (id, form) => {
     .then((data) => data.data)
     .catch((err) => console.log(err));
 };
+
+export const createBlog = (id, form) => {
+  return axios
+    .post(`${API}/blog/create/${id}`, JSON.stringify(form), {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+    .then((data) => data.data)
+    .catch((err) => console.log(err));
+};
+
+export const getAllBlogs = () => {
+  return axios({
+    url: `${API}/blog/details`,
+    method: "get",
+    headers: {
+      Accept: "application/json",
+    },
+  })
+    .then((response) => {
+      return response.data;
+    })
+    .catch((err) => console.log(err));
+};
