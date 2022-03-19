@@ -130,9 +130,6 @@ const EditorPage = ({ getContent }) => {
           },
         }}
       />
-      {/* <textarea
-        value={draftToHtml(convertToRaw(editorState.getCurrentContent()))}
-      ></textarea> */}
     </Container>
   );
 };
