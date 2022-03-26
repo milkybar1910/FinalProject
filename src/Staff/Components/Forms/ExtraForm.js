@@ -224,6 +224,49 @@ const ExtraForm = (props) => {
                   ))}
                 </Fragment>
               );
+            } else if (data["fieldName"] === "Range") {
+              return (
+                <Fragment key={index}>
+                  {data.details.map((val, valIndex) => (
+                    <Form.Group
+                      controlId={val.label}
+                      key={valIndex}
+                      className="mb-3"
+                    >
+                      <Row className="mt-4">
+                        <Col xs={5}>
+                          <Form.Label
+                            className="bg-primary py-2 fs-6 text-white rounded text-center"
+                            as="div"
+                          >
+                            {val.label}
+                          </Form.Label>
+                        </Col>
+                        <Col xs={7} className="d-flex">
+                          <input
+                            className="form-range py-2 align-self-center"
+                            type="range"
+                            min={val.min}
+                            max={val.max}
+                            step={val.steps}
+                            onInput={(e) => {
+                              document.getElementById(
+                                "siva" + valIndex
+                              ).innerHTML = e.target.value;
+                            }}
+                          />
+                          <span
+                            id={"siva" + valIndex}
+                            className="font-weight-bold google-font  mx-2 align-self-center"
+                          >
+                            {val.min}
+                          </span>
+                        </Col>
+                      </Row>
+                    </Form.Group>
+                  ))}
+                </Fragment>
+              );
             }
           })}
         </>
@@ -272,7 +315,6 @@ const ExtraForm = (props) => {
                 <option value={"Field"}>Field</option>
                 <option value={"Text"}>Text Field</option>
                 <option value={"Select"}>DropDown Field</option>
-                <option value={"Checkbox"}>CheckBoxes</option>
                 <option value={"Range"}>Range Field</option>
               </Form.Select>
               <Form.Control.Feedback type="invalid">

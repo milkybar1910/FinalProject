@@ -4,6 +4,7 @@ import TextField from "./TextField";
 import SelectField from "./SelectField";
 import { DynamicUpdateStudent } from "../../../helper/StudentApiCall";
 import { isAuthenticated } from "../../../../Auth/helper";
+import RangeField from "./RangeField";
 
 const RenderForm = (props) => {
   const { student } = isAuthenticated();
@@ -58,6 +59,17 @@ const RenderForm = (props) => {
                             details={data.details}
                             setForms={setForms}
                             forms={forms}
+                          />
+                        </Col>
+                      );
+                    else if (data.fieldName === "Range")
+                      return (
+                        <Col md={6} key={index}>
+                          <RangeField
+                            details={data.details}
+                            setForms={setForms}
+                            forms={forms}
+                            index={index}
                           />
                         </Col>
                       );

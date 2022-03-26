@@ -81,53 +81,7 @@ const Home = () => {
   }, [blogCreateLoading]);
 
   const { student, token } = isAuthenticated();
-  let data = [
-    {
-      id: 1,
-      blog: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus voluptatum ipsum voluptates magnam molestiae? Ipsam modi ut molestiae itaque soluta, dolorum magnam quis nihil fugit. Sunt nulla iure fugit cupiditate, nihil ipsum et quisquam aperiam consectetur sint adipisci tempore nisi magni deleniti placeat porro tenetur vitae delectus reiciendis eos vero doloremque temporibus earum. Neque iure fugit hic ducimus, dignissimos exercitationem odit? Unde esse, accusantium exercitationem earum vitae nobis inventore ut fugiat laudantium? Ea aliquam cum sit non sint sed error delectus eum? Obcaecati quam voluptatem consequuntur quisquam unde quaerat soluta, atque corporis magnam dolorum harum exercitationem! Itaque dolores perspiciatis quidem?",
-      user: "lorem10",
-      batch: "2018",
-      regno: "312418205087",
-      studentId: student._id,
-      timestamp: "Jan 6, 2021",
-    },
-    {
-      id: 2,
-      blog: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus voluptatum ipsum voluptates magnam molestiae? Ipsam modi ut molestiae itaque soluta, dolorum magnam quis nihil fugit. Sunt nulla iure fugit cupiditate, nihil ipsum et quisquam aperiam consectetur sint adipisci tempore nisi magni deleniti placeat porro tenetur vitae delectus reiciendis eos vero doloremque temporibus earum. Neque iure fugit hic ducimus, dignissimos exercitationem odit? Unde esse, accusantium exercitationem earum vitae nobis inventore ut fugiat laudantium? Ea aliquam cum sit non sint sed error delectus eum? Obcaecati quam voluptatem consequuntur quisquam unde quaerat soluta, atque corporis magnam dolorum harum exercitationem! Itaque dolores perspiciatis quidem?",
-      user: "lorem10",
-      batch: "2018",
-      regno: "312418205087",
-      studentId: student._id,
-      timestamp: "Jan 6, 2021",
-    },
-    {
-      id: 3,
-      blog: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus voluptatum ipsum voluptates magnam molestiae? Ipsam modi ut molestiae itaque soluta, dolorum magnam quis nihil fugit. Sunt nulla iure fugit cupiditate, nihil ipsum et quisquam aperiam consectetur sint adipisci tempore nisi magni deleniti placeat porro tenetur vitae delectus reiciendis eos vero doloremque temporibus earum. Neque iure fugit hic ducimus, dignissimos exercitationem odit? Unde esse, accusantium exercitationem earum vitae nobis inventore ut fugiat laudantium? Ea aliquam cum sit non sint sed error delectus eum? Obcaecati quam voluptatem consequuntur quisquam unde quaerat soluta, atque corporis magnam dolorum harum exercitationem! Itaque dolores perspiciatis quidem?",
-      user: "lorem10",
-      batch: "2018",
-      regno: "312418205087",
-      studentId: student._id,
-      timestamp: "Jan 6, 2021",
-    },
-    {
-      id: 4,
-      blog: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus voluptatum ipsum voluptates magnam molestiae? Ipsam modi ut molestiae itaque soluta, dolorum magnam quis nihil fugit. Sunt nulla iure fugit cupiditate, nihil ipsum et quisquam aperiam consectetur sint adipisci tempore nisi magni deleniti placeat porro tenetur vitae delectus reiciendis eos vero doloremque temporibus earum. Neque iure fugit hic ducimus, dignissimos exercitationem odit? Unde esse, accusantium exercitationem earum vitae nobis inventore ut fugiat laudantium? Ea aliquam cum sit non sint sed error delectus eum? Obcaecati quam voluptatem consequuntur quisquam unde quaerat soluta, atque corporis magnam dolorum harum exercitationem! Itaque dolores perspiciatis quidem?",
-      user: "lorem10",
-      batch: "2018",
-      regno: "312418205087",
-      studentId: student._id,
-      timestamp: "Jan 6, 2021",
-    },
-    {
-      id: 5,
-      blog: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus voluptatum ipsum voluptates magnam molestiae? Ipsam modi ut molestiae itaque soluta, dolorum magnam quis nihil fugit. Sunt nulla iure fugit cupiditate, nihil ipsum et quisquam aperiam consectetur sint adipisci tempore nisi magni deleniti placeat porro tenetur vitae delectus reiciendis eos vero doloremque temporibus earum. Neque iure fugit hic ducimus, dignissimos exercitationem odit? Unde esse, accusantium exercitationem earum vitae nobis inventore ut fugiat laudantium? Ea aliquam cum sit non sint sed error delectus eum? Obcaecati quam voluptatem consequuntur quisquam unde quaerat soluta, atque corporis magnam dolorum harum exercitationem! Itaque dolores perspiciatis quidem?",
-      user: "lorem10",
-      batch: "2018",
-      regno: "312418205087",
-      studentId: student._id,
-      timestamp: "Jan 6, 2021",
-    },
-  ];
+
   return (
     <Base>
       <Container fluid="lg">

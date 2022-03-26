@@ -11,7 +11,6 @@ const SelectField = ({ handleFieldChange }) => {
     options: [],
   });
 
-  //TODO: COME HERE
   const findFormErrors = () => {
     let newErrors = {};
 
